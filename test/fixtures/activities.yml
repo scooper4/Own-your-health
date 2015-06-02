@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pts_per_min: 1
+
+two:
+  name: MyString
+  pts_per_min: 1
