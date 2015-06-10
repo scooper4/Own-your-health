@@ -1,5 +1,5 @@
 
-<%= form_for (@post_activity), :url => post_activity_path, :html => { :multipart => true } do |f| %>
+<%= form_for (@post_activity), :html => { :multipart => true } do |f| %>
 
   <div class="field">
    <%= f.collection_select(:activity_id, Activity.all, :id, :name) %>

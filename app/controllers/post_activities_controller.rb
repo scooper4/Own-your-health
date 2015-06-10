@@ -1,5 +1,6 @@
 class PostActivitiesController < ApplicationController
 
+
 before_action :find_post, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -7,11 +8,11 @@ before_action :find_post, only: [:show, :edit, :update, :destroy]
   	end
   
   def new
-  		@post_activity = PostActivity.new
+  		@post_activity = current_user.post_activities.build
   end	
 
   def create
-      @post_activity = PostActivity.new(activity_params)
+      @post_activity = current_user.post_activities.build(activity_params)
       if @post_activity.save
         redirect_to @post_activity
       else
@@ -44,7 +45,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy]
   private
 
   	def activity_params
-  		params.require(:post_activity).permit(:description,:activity_id,:act_mins,:image)
+  		params.require(:post_activity).permit(:description,:activity_id,:act_mins,:image,)
     end
 
     def find_post
