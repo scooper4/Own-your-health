@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602011051) do
+ActiveRecord::Schema.define(version: 20150609205509) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -20,4 +20,16 @@ ActiveRecord::Schema.define(version: 20150602011051) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "post_activities", force: :cascade do |t|
+    t.text     "description", limit: 65535
+    t.decimal  "act_points",                precision: 10
+    t.integer  "activity_id", limit: 4
+    t.integer  "act_mins",    limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "post_activities", ["activity_id"], name: "index_post_activities_on_activity_id", using: :btree
+
+  add_foreign_key "post_activities", "activities"
 end

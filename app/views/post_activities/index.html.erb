@@ -1,0 +1,18 @@
+
+<h1>These are the  Activity log</h1>
+<% @post_activities.each do |t| %>
+<h3><%= link_to t.activity.name, t %> : 
+<%= (t.act_mins * t.activity.pts_per_min).round(2) %>
+ pts</h3>
+</p> <%= t.description %></p>
+<p> Duration : <%= t.act_mins  %> minutes </p>
+
+
+
+
+<br>
+<% end %>
+
+<%= link_to "New Workout", new_post_activity_path %>
+
+

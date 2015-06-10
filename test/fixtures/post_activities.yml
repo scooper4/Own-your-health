@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  act_date: 2015-06-01 21:54:50
+  act_points: 9.99
+  activity_id: 
+
+two:
+  description: MyText
+  act_date: 2015-06-01 21:54:50
+  act_points: 9.99
+  activity_id: 

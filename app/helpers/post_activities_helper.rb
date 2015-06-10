@@ -1,0 +1,2 @@
+module PostActivitiesHelper
+end
