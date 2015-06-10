@@ -44,7 +44,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy]
   private
 
   	def activity_params
-  		params.require(:post_activity).permit(:description,:activity_id,:act_mins)
+  		params.require(:post_activity).permit(:description,:activity_id,:act_mins,:image)
     end
 
     def find_post

@@ -4,6 +4,11 @@
   <strong>Activity:</strong>
   <%= @post_activity.activity.name%>
 </p>
+
+<p>
+ 
+  <%= image_tag @post_activity.image.url(:medium) %>
+</p>
 <p>
   <strong>Points Awarded:</strong>
   <%= (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2) %>

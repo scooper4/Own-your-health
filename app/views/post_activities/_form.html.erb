@@ -1,5 +1,5 @@
 
-<%= form_for (@post_activity) do |f| %>
+<%= form_for (@post_activity), :url => post_activity_path, :html => { :multipart => true } do |f| %>
 
   <div class="field">
    <%= f.collection_select(:activity_id, Activity.all, :id, :name) %>
@@ -12,7 +12,13 @@
     <%= f.label :act_mins %><br>
     <%= f.text_field :act_mins%>
   </div>
-    <div class="actions">
+   <%= image_tag @post_activity.image.url(:thumb) %> 
+  <div>
+  <%= f.label "image upload" %><br> 
+  <%= f.file_field :image %>
+  </div>
+
+   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

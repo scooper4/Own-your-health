@@ -4,6 +4,7 @@
 <h3><%= link_to t.activity.name, t %> : 
 <%= (t.act_mins * t.activity.pts_per_min).round(2) %>
  pts</h3>
+ <p> <%= image_tag t.image.url(:medium) %> </p>
 </p> <%= t.description %></p>
 <p> Duration : <%= t.act_mins  %> minutes </p>
 
