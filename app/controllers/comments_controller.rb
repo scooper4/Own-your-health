@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 	before_action :find_comment, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@post_activity = PostActivity.find(params[:id])
+  	@post_activity = PostActivity.find(params[:post_activity_id])
+  	@comments = Comment.all
   end
 
   def new

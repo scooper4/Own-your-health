@@ -1,5 +1,3 @@
 <% @comments.each do |c| %>
-<%= c.content %>
-<%= c.user_id %>
-<%= c.post_activity_id %>
+<p><strong><%= c.content %> </strong>- <%= c.created_at%></p>
 <% end %>

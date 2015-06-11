@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<ul>
+  <li><%= link_to "New Workout", new_post_activity_path %></li>
+  <li><%= link_to "New Activity", new_activity_path %></li>
+  <li><%= link_to "Home", :root %></li>
+  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+  <li><%= link_to "Sign In", new_user_session_path %></li>
+  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+  <li><%= link_to "Account", edit_user_registration_path %></li>
+
+
+</ul>
+</br>
+</br>
       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
