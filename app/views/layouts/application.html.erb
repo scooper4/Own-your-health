@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+   <p class="alert"><%= alert %></p>
+   <p class="notice"><%= notice %></p>
+   
+
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -38,10 +42,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 	
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-<div class ="container">
 <%= yield %>
-</div>
+
 </body>
 </html>

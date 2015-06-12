@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :find_comment, only: [:show, :edit, :update, :destroy]
+	before_action :find_comment, only: [ :edit, :update, :destroy]
 
   def index
   	@post_activity = PostActivity.find(params[:post_activity_id])
@@ -25,8 +25,8 @@ class CommentsController < ApplicationController
   end
 
   def show
-
-  end
+    @comments = Comment.find(params[:post_activity_id])
+  end  
 
   def edit
   end

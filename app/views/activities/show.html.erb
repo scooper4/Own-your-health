@@ -1,15 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class ="container">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @activity.name %>
-</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @activity.name %>
+	</p>
 
-<p>
-  <strong>Pts per min:</strong>
-  <%= @activity.pts_per_min %>
-</p>
+	<p>
+	  <strong>Pts per min:</strong>
+	  <%= @activity.pts_per_min %>
+	</p>
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
-
+	<%= link_to 'Edit', edit_activity_path(@activity) %> |
+	<%= link_to 'Back', activities_path %>
+</div>

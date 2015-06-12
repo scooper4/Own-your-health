@@ -1,39 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class ="container">
 
-<p>
-  <strong>Activity:</strong>
-  <%= @post_activity.activity.name%>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
- 
-  <%= image_tag @post_activity.image.url(:medium) %>
-</p>
-<p>
-  <strong>Points Awarded:</strong>
-  <%= (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2) %>
-</p>
+  <p>
+    <strong>Activity:</strong>
+    <%= @post_activity.activity.name%>
+  </p>
+
+  <p>
+   
+    <%= image_tag @post_activity.image.url(:medium) %>
+  </p>
+  <p>
+    <strong>Points Awarded:</strong>
+    <%= (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2) %>
+  </p>
 
 
-<p>
-  <strong>Description:</strong>
-  <%= @post_activity.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @post_activity.description %>
+  </p>
 
-<p>
-  <strong>Comments:</strong>
-  <% @post_activity.comments.each do |c| %>
-  <div> <%= c.content %>
-  <%= c.created_at %>
+  <p>
+    <strong>Comments:</strong>
+    <% @post_activity.comments.each do |c| %>
+    <div> <%= c.content %>
+    <%= c.created_at %>
+  </div>
+
+
+    <% end %>
+
+  </p>
+
+  <%= link_to 'All Posts', post_activities_path %>
+  <%= link_to 'Edit', edit_post_activity_path %>
+  <%= link_to 'Add Comment', new_post_activity_comment_path(@post_activity) %>
+  <%= link_to 'Delete', post_activity_path, method: :delete, data: { Confirm: "Are you Sure?" } %>
 </div>
-
-
-  <% end %>
-
-</p>
-
-<%= link_to 'All Posts', post_activities_path %>
-<%= link_to 'Edit', edit_post_activity_path %>
-<%= link_to 'Add Comment', new_post_activity_comment_path(@post_activity) %>
-<%= link_to 'Delete', post_activity_path, method: :delete, data: { Confirm: "Are you Sure?" } %>
 

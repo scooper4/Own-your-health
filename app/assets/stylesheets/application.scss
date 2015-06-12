@@ -1,11 +1,18 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-li {
-    float: left;
+@import "post_activities.scss";
+
+.notice {
+	margin:0px;
+	text-align: right;
+
+}
+.alert {
+	margin: 0;
 }
 
-a {
-    display: block;
-    width: 80px;
+.navbar {
+	margin:0;
 }
+
