@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'paperclip', '~> 4.2.2'
 gem 'devise', '~> 3.5.1'
+gem 'bootstrap-sass', '~> 3.3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
