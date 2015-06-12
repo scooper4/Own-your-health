@@ -1,7 +1,14 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+    <%= devise_error_messages! %>
+  <%= image_tag @user.image.url(:thumb) %>
+  <div class="form-group">
+        <%= f.label "Profile Image", class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+            <%= f.file_field :image %>
+        </div>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
