@@ -17,6 +17,7 @@
 					    	<% if t.user.image? %>
 					    		<img src= <%= t.user.image.url %> alt="..." class="img-rounded">
 					    	<% else %>
+					    		<img src="/assets/no_profile.png"  alt="..." class="img-rounded">
 					    	<% end %>
 					    	<%= link_to t.user.first_name + "  had a " + t.activity.name + " Workout ", t %> 
 					    	<div class="activity-points"><%= t.act_points %></div>
@@ -41,7 +42,35 @@
 			        </div>
 			  <% end %>
 		</div>
-        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">
+        <h1>Leaders</h1>	
+        	<% @users.order("total_points desc").each do |u| %>	
+        		<p><% u.total_points = u.post_activities.sum(:act_points).round(2) %> </p>
+        		<% u.total_points %>
+        		<% u.save %>
+        	<%end%>
+        	<% @users.order("total_points desc").each do |u| %>	
+        		<div class="panel panel-primary">
+  					<div class="panel-heading">
+  						<% if u.image? %>
+					    	<img src= <%= u.image.url %> alt="..." class="img-rounded">
+					    <% else %>
+					    	<img src="/assets/no_profile.png"  alt="..." class="img-rounded">
+					    <% end %>
+					    <%= u.first_name %>
+        				<%= u.total_points %>
+        				Points
+					 </div>
+				</div>
+        		
+        		
+        	<%end%>
+        	
+
+
+
+
+        </div>
     </div> 
 	<br>
 	
