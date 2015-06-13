@@ -4,23 +4,47 @@
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 <div class ="container">
-	<h1>These are the  Activity log</h1>
-	<% @post_activities.each do |t| %>
-		<h3><%= link_to t.activity.name, t %> 
-			<%= t.user.first_name + "  is awarded " %>: 
-		<%= t.act_points  %>
+	<div class="row">
+  		<div class="col-md-8">
+  
+			<h1>Latest Workouts</h1>
+				<% @post_activities.reverse_each do |t| %>
 
-		 pts</h3> 
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">
 
-		<p> <%= image_tag t.image.url(:medium) %> </p>
-		</p> <%= t.description %></p>
-		<p> Duration : <%= t.act_mins  %> minutes </p>
+					    	<% if t.user.image? %>
+					    		<img src= <%= t.user.image.url %> alt="..." class="img-rounded">
+					    	<% else %>
+					    	<% end %>
+					    	<%= link_to t.user.first_name + "  had a " + t.activity.name + " Workout ", t %> 
+					    	<div class="activity-points"><%= t.act_points %></div>
 
-		
-		<%= link_to "Comments", post_activity_comment_path(t.id, t.id) %>
+					    </h3>
+					  </div>
+					  <div class="panel-body">
+					    <p> <%= image_tag t.image.url(:medium) %> </p>
+						</p> <%= t.description %></p>
+						<p>
+						<%= link_to like_post_activity_path(t), method: :put, class: "btn btn-default" do %>
+								<i class="glyphicon glyphicon-heart"></i>
+						<% end %>		
+								<%= t.get_upvotes.size %>
+						
 
+				
+						<p><%= link_to "Comments", post_activity_comment_path(t.id, t.id) %> </p>
+
+					  </div>
+
+			        </div>
+			  <% end %>
+		</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div> 
 	<br>
-	<% end %>
+	
 	<p><h3>
 	<%= link_to "New Workout", new_post_activity_path %></p></h3>
 	

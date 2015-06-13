@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :activities
   resources :post_activities do
+    member do
+      put "like", to: "post_activities#upvote"
+    end
     resources :comments
    end 
 

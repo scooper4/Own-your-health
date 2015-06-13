@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'paperclip', '~> 4.2.2'
 gem 'devise', '~> 3.5.1'
 gem 'bootstrap-sass', '~> 3.3.4.1'
