@@ -1,4 +1,4 @@
-<% @comments.each do |c| %>
+<% @post_activity.comments.each do |c| %>
 <p><strong><%= c.content %> </strong>- <%= c.created_at%> </p>
 <% end %>
 <%= link_to "Back", :back  %>
