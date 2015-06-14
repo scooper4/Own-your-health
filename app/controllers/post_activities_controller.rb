@@ -11,6 +11,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
       @users = User.order("total_points desc")
       @users.find_each do |user|
         user.update_total_points
+        
       end  
      
   	end
