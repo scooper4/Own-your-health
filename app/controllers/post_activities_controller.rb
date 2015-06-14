@@ -6,9 +6,12 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
 
 
 	def index
-      total_points
+     
   		@post_activities = PostActivity.includes(:activity).all
-      @users = User.includes(:post_activities).all
+      @users = User.order("total_points desc")
+      @users.find_each do |user|
+        user.update_total_points
+      end  
      
   	end
   
@@ -67,12 +70,6 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
       @post_activity.update_attribute(:act_points, (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2))
     end  
 
-    def total_points
-      @users= User.all
-      @users.each do |u|
-      u.total_points = u.post_activities.sum(:act_points).round(2)
-      end  
-      
-   end
+   
 
 end
