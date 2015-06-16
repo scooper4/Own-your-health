@@ -1,7 +1,12 @@
 <div class="jumbotron">
   <h1>Own Your Health!</h1>
-  <p>...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  <p> Start your journey to optimal health today!</p>
+  <%if user_signed_in? %>
+  	<h3>Welcome <%= current_user.first_name%></h3>
+  <%else%>
+  	<p class ="fb_button_home"><%= link_to image_tag("fb_log_in.png"), user_omniauth_authorize_path(:facebook) %>
+  <% end %>	
+  </p>	
 </div>
 <div class ="container">
 	<div class="row">
