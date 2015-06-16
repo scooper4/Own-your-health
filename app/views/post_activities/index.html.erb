@@ -26,9 +26,10 @@
 					  </div>
 					  <div class="panel-body">
 					  	<% if t.image? %>
-						    <p> <%= image_tag t.image.url(:medium) %> </p>
+						    <p> <%=  image_tag t.image.url(:medium) %> </p>
 						<% else %>
-						<% end %>    
+						<% end %> 
+							<p> <i> <%= " Posted " + time_ago_in_words(t.created_at) + " ago " %></p> </i> 
 							<p> <%= t.description %></p>
 
 							<p>
