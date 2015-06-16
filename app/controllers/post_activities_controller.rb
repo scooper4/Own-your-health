@@ -7,7 +7,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
 
 	def index
      
-  		@post_activities = PostActivity.includes(:activity).all
+  		@post_activities = PostActivity.paginate(:page => params[:page])
       @users = User.order("total_points desc")
       @users.find_each do |user|
         user.update_total_points

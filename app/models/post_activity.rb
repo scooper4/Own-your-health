@@ -8,5 +8,5 @@ class PostActivity < ActiveRecord::Base
 #Scope to search in between specific post activity dates? maybe to get act_points sum from specific date?
   scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
 
-  
+  self.per_page = 5
 end
