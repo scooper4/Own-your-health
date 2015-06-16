@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613075619) do
+ActiveRecord::Schema.define(version: 20150616054833) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20150613075619) do
     t.integer  "image_file_size",        limit: 4
     t.datetime "image_updated_at"
     t.float    "total_points",           limit: 24
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

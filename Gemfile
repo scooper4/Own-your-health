@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'will_paginate', '~> 3.0.6'
-gem 'omniauth-facebook', '~> 2.0.1'
+gem 'omniauth-facebook'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'paperclip', '~> 4.2.2'
 gem 'devise', '~> 3.5.1'
