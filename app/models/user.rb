@@ -26,7 +26,9 @@ class User < ActiveRecord::Base
     user.password = Devise.friendly_token[0,20]
     user.provider = auth.provider
     user.uid = auth.uid
-    
+    user.first_name = auth.info.first_name
+    user.last_name = auth.info.last_name
+    user.image = auth.info.image.gsub('http://','https://')
   end
 end
   
