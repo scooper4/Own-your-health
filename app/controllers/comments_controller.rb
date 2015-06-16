@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def index
   	@post_activity = PostActivity.find(params[:post_activity_id])
-  	@comments = Comment.all
+  	@comments = Comment.includes(:users)
   end
 
   def new
