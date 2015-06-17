@@ -93,7 +93,10 @@
 	
 			
 		</br>
-	<%= link_to "New Workout", new_post_activity_path %></p></h3>
+	<% if user_signed_in?%>	
+		<%= link_to "New Workout", new_post_activity_path %></p></h3>
+	<% else %>
+	<% end %>
 	
 
 
