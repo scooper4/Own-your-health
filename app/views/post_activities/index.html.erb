@@ -6,12 +6,24 @@
   <h1>Own Your Health!</h1>
   <p class="jumbotron-desc"> Start your journey to optimal health today!</p>
   <%if user_signed_in? %>
-  	<h3>Welcome <%= current_user.first_name%></h3>
-  	<% if current_user.image? %>
-  	<img src= <%= current_user.image.url%>  class="welcome-user-image" >
-  	<% else %>
-  	<img src="/assets/no_profile.png"  alt="..." class="welcome-user-image">
-  	<% end %>
+  	<h3></h3>
+  	<div class="card">
+                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                <div class="avatar">
+                	<% if current_user.image? %>
+					  	<img src= <%= current_user.image.url%>  class="welcome-user-image" >
+					  	<% else %>
+					  	<img src="/assets/no_profile.png"  alt="..." class="welcome-user-image">
+				  	<% end %>   
+                </div>
+                <div class="content">
+                    <p>Welcome <%= current_user.first_name%> <br>
+                       </p>
+                    <p><strong><%= current_user.total_points%> </strong> <br> Total points</p>
+
+                </div>
+            </div>
+  	
 
   <%else%>
   	<div class ="sign_in_form">
