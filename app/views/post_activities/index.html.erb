@@ -4,10 +4,21 @@
 
 
   <h1>Own Your Health!</h1>
-  <p> Start your journey to optimal health today!</p>
+  <p class="jumbotron-desc"> Start your journey to optimal health today!</p>
   <%if user_signed_in? %>
   	<h3>Welcome <%= current_user.first_name%></h3>
+  	<% if current_user.image? %>
+  	<img src= <%= current_user.image.url%>  class="welcome-user-image" >
+  	<% else %>
+  	<img src="/assets/no_profile.png"  alt="..." class="welcome-user-image">
+  	<% end %>
+
   <%else%>
+  	<div class ="sign_in_form">
+  		<%= render "form_login" %>
+  	</div>	
+
+
   	<div class ="fb_button_home"><%= link_to image_tag("fb_log_in.png"), user_omniauth_authorize_path(:facebook) %>
   <% end %>	
   </div>	
@@ -23,15 +34,25 @@
 					<div class="panel panel-default">
 					  <div class="panel-heading">
 					    <h3 class="panel-title">
+					    	
+					    		
+					    			<% if t.user.image? %>
+							    		<img src= <%= t.user.image.url %> alt="..." class="img-rounded">
+							    	<% else %>
+							    		<img src="/assets/no_profile.png"  alt="..." class="img-rounded">
+							    	<% end %>
+							    	<span class ="workout_title">
+							    		<%= link_to t.user.first_name + "  had a " + t.activity.name + " Workout ", t %> 
+							    	</span>	
+					    							    		
+					    			<span class="activity-points"><%= t.act_points %>
+					    			</span>
 
-					    	<% if t.user.image? %>
-					    		<img src= <%= t.user.image.url %> alt="..." class="img-rounded">
-					    	<% else %>
-					    		<img src="/assets/no_profile.png"  alt="..." class="img-rounded">
-					    	<% end %>
-					    	<%= link_to t.user.first_name + "  had a " + t.activity.name + " Workout ", t %> 
-					    	<div class="activity-points"><%= t.act_points %></div>
+					    		
+					    				
 
+					    	
+					    	
 					    </h3>
 					  </div>
 					  <div class="panel-body">

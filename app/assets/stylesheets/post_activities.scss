@@ -10,10 +10,20 @@ height: 500px;
 background-size: 100% ;
 }
 
+
 .img-rounded {
 	
 	width:50px;
 	height:50px;
+}
+
+.welcome-user-image{
+	margin-top: 10px;
+
+	border-radius: 25%;
+    width: 200px;
+    height: 200px;
+    
 }
 
 .activity-points {
@@ -26,7 +36,44 @@ background-size: 100% ;
 	float:right;
 	display: inline-block;
 }
+@media(min-width: 991px){
+	h1{
+		font-size: 4.0em !important;
+	}
 
+	
+	.sign_in_form{
+		width: 25%;
+		margin-left: 20px;
+		
+	}
+
+}	
+@media(max-width: 991px){
+	h1 {
+		font-size: 2.6em !important;
+		margin-top: 0;
+
+	}
+	
+
+	.sign_in_form{
+		width: 25%;
+		margin-left: 20px;
+		
+	}
+
+.jumbotron-desc{
+		width: 300px;
+		text-align: center;
+	}
+.form-label {
+	font-size: 1.3em !important;
+}	
+
+
+
+}
 @media(max-width: 690px){
 	.jumbotron:before {
   content: "";
@@ -60,11 +107,34 @@ background-size: 100% ;
 
 
 	}
+	.jumbotron-desc{
+		width: 100%;
+		text-align: center;
+	}
 
 	.fb_button_home  {
 		width: 100%;
-		margin: 250px 0 0 0;
+		margin: 25px 0 0 0;
 
 	}
+
+	.sign_in_form{
+		width: 60%;
+		margin:0 auto;
+
+	}
+
+	.workout_title {
+			font-size: .75em;
+	}
+
+
+	.activity-points {
+	
+	font-size: 1.4em;
+	margin: auto 0
+}
+
+		
 }
 
