@@ -27,4 +27,44 @@ background-size: 100% ;
 	display: inline-block;
 }
 
+@media(max-width: 690px){
+	.jumbotron:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  background: url(/assets/jumbotron_bg.jpg)top center;
+  width: 100%;
+  height: 100%;
+  
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+	}
+	.jumbotron{  
+		background: none;
+		position: relative;
+  		left: 0;
+  		right: 0;
+  		top: 0;
+  		z-index: 0;
+  		margin-left: 0px;
+  		margin-right: 0px;
+  		margin-top: -20px;
+  		text-align: center;
+
+
+	}
+
+	.fb_button_home  {
+		width: 100%;
+		margin: 250px 0 0 0;
+
+	}
+}
 
