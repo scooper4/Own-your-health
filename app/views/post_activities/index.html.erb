@@ -95,6 +95,11 @@
 			  	<div class="apple_pagination">
     				<%= will_paginate @posts_activities, :container => false %>
  				</div>
+ 				</br>
+				<% if user_signed_in?%>	
+					<%= link_to "New Workout", new_post_activity_path, class:'btn btn-primary' %></p></h3>
+				<% else %>
+				<% end %>
 		</div>
         <div class="col-md-4">
         <h1>Leaders</h1>	
@@ -130,11 +135,7 @@
 
 	
 			
-		</br>
-	<% if user_signed_in?%>	
-		<%= link_to "New Workout", new_post_activity_path %></p></h3>
-	<% else %>
-	<% end %>
+	
 	
 
 
