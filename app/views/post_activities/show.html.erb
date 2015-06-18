@@ -1,52 +1,79 @@
 <div class ="container">
 
   <p id="notice"><%= notice %></p>
+  <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="box">
+                <div class="box-icon">
+                  <img src=<%= @post_activity.user.image.url%> class="show-user-img">
+                    
+                </div>
+                <div class="info">
+                    <h4 class="text-center">
+                      <strong>Activity:</strong>
+                      <%= @post_activity.activity.name%>
+                      <br>
 
-  <p>
-    <strong>Activity:</strong>
-    <%= @post_activity.activity.name%>
-  </p>
+                      <span class="show-points">
+                        <strong >Pts Awarded:</strong>
+                        <%= (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2) %>
+                      </span>  
+                    </h4>
+                    <p>
+                      <div class="show-image">
+                        <% if @post_activity.image? %> 
+                          <%= image_tag @post_activity.image.url%>
+                        
+                        <% else %>
+                        <% end %>
+                      </div>  
+                    </p>    
+                      <p>
+                        <strong>Description:</strong>
+                          <%= @post_activity.description %>
+                        </p>
 
-  <p>
-  <% if @post_activity.image? %> 
-    <%= image_tag @post_activity.image.url(:medium) %>
-  </p>
-  <% else %>
-  <% end %>
-  <p>
-    <strong>Points Awarded:</strong>
-    <%= (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2) %>
-  </p>
+                        <p>
+                          <strong>Comments:</strong>
+                          <% @post_activity.comments.each do |c| %>
+                          <div class="show-comments"> <%= c.content %>
+                          <%= c.created_at %>
+                          </div>
 
 
-  <p>
-    <strong>Description:</strong>
-    <%= @post_activity.description %>
-  </p>
+                          <% end %>
 
-  <p>
-    <strong>Comments:</strong>
-    <% @post_activity.comments.each do |c| %>
-    <div> <%= c.content %>
-    <%= c.created_at %>
+                        </p>
+                      <% if user_signed_in? && current_user.id == @post_activity.user_id  %>
+                          <%= link_to 'All Posts', post_activities_path %>
+                          <%= link_to 'Edit', edit_post_activity_path %>
+                          <%= link_to 'Add Comment', new_post_activity_comment_path(@post_activity) %>
+                          <%= link_to 'Delete', post_activity_path, method: :delete, data: { Confirm: "Are you Sure?"} %>
+                      <% elsif user_signed_in? %>
+                          <%= link_to 'All Posts', post_activities_path %>
+                          <%= link_to 'Add Comment', new_post_activity_comment_path(@post_activity) %>
+                      <% else %>
+                          <%= link_to 'All Posts', post_activities_path %>
+                      <% end %>
+
+
+                      </p>
+                     
+                </div>
+            </div>
   </div>
-
-
-    <% end %>
-
+  <p>
+    
   </p>
-<% if user_signed_in? && current_user.id == @post_activity.user_id  %>
-    <%= link_to 'All Posts', post_activities_path %>
-    <%= link_to 'Edit', edit_post_activity_path %>
-    <%= link_to 'Add Comment', new_post_activity_comment_path(@post_activity) %>
-    <%= link_to 'Delete', post_activity_path, method: :delete, data: { Confirm: "Are you Sure?"} %>
-<% elsif user_signed_in? %>
-    <%= link_to 'All Posts', post_activities_path %>
-    <%= link_to 'Add Comment', new_post_activity_comment_path(@post_activity) %>
-<% else %>
-    <%= link_to 'All Posts', post_activities_path %>
-<% end %>
+
+  <p>
+  
+  <p>
+    
+  </p>
 
 
+  <p>
+   
 </div>
 
