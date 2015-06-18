@@ -24,5 +24,7 @@ module ErikHealth
     config.active_record.raise_in_transactional_callbacks = true
     # fix heroku found on stack overflow
     config.assets.initialize_on_precompile = false
+    #fix how heroku handles assets
+    config.serve_static_assets = true
   end
 end
