@@ -13,7 +13,7 @@ class PostActivity < ActiveRecord::Base
 
 
   def post_points
-  	(activity.pts_per_min * act_mins).round(2)
+  	activity.pts_per_min * act_mins
   end
   def update_act_points
   	update(act_points: post_points)
