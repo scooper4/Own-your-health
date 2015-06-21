@@ -17,15 +17,7 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-*
 
-This Snippet is using a modified Stack Blur js lib for blurring the header images.
-
-I could not use hosted images because Canvas cannot work with cross domain images. If you want to use hosted images make sure they are on the same domain.
-
-Have fun!
-
-*/
 
 /*
 
