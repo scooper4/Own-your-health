@@ -10,4 +10,14 @@ class PostActivity < ActiveRecord::Base
   scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
 
   self.per_page = 5
+
+
+  def post_points
+  	activity.pts_per_min * act_mins
+  end
+  def update_act_points
+  	update(act_points: post_points)
+  end
+
+
 end

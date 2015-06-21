@@ -9,10 +9,15 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
      
   		@post_activities = PostActivity.paginate(:page => params[:page] ).order("created_at desc")
       @users = User.order("total_points desc")
-      @users.find_each do |user|
-        user.update_total_points
-        
+      #update each workouts points
+      @post_activities.each do |post|
+        post.update_act_points
       end  
+      #then update total points / leaderboard
+      @users.find_each do |user|
+      user.update_total_points  
+      end  
+
      
   	end
   
@@ -22,7 +27,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
 
   def create
       @post_activity = current_user.post_activities.build(activity_params)
-      add_points
+     
       if @post_activity.save
         redirect_to @post_activity
       else
@@ -44,7 +49,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
   	
   def update
     if @post_activity.update(activity_params)
-        add_points
+        
         redirect_to @post_activity
       else
         render 'form'
@@ -67,9 +72,7 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
       @post_activity = PostActivity.find(params[:id])
     end
 
-    def add_points
-      @post_activity.update_attribute(:act_points, (@post_activity.act_mins * @post_activity.activity.pts_per_min).round(2))
-    end  
+    
 
    
 
