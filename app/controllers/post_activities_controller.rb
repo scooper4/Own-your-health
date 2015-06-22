@@ -1,7 +1,8 @@
 class PostActivitiesController < ApplicationController
-
+before_action :belongs_to_user, only: [:edit, :update, :destroy]
 before_action :authenticate_user!, except: [:index, :show]
 before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
+
 
 
 
@@ -70,6 +71,17 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
 
     def find_post
       @post_activity = PostActivity.find(params[:id])
+    end
+
+    def belongs_to_user
+      find_post
+      if current_user.id != @post_activity.user_id 
+        redirect_to :root
+
+      else
+        
+      end  
+      
     end
 
     

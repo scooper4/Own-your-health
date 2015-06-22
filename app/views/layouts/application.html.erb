@@ -7,10 +7,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-   <p class="alert"><%= alert %></p>
-   <p class="notice"><%= notice %></p>
+   
    
 
   <nav class="navbar navbar-default">
@@ -43,12 +43,13 @@
         <% end %>          
       </ul>
       
-      
+      <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 	
 <%= yield %>
-
+ 
 </body>
 </html>
