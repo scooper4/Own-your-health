@@ -72,12 +72,11 @@ before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote]
     def find_post
       @post_activity = PostActivity.find(params[:id])
     end
-
+#redirects user to root page if they dont have access to edit post
     def belongs_to_user
       find_post
       if current_user.id != @post_activity.user_id 
         redirect_to :root
-
       else
         
       end  
