@@ -8,9 +8,12 @@
    
  
     <div class="col-md-8">
+      
       <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <div class="field">
       <%= image_tag @user.image.url(:thumb) %> <br>    
       <%= f.file_field :image %>   
+      </div>
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class:'form-control' %>
