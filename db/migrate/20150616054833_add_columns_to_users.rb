@@ -3,4 +3,5 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :provider, :string
     add_column :users, :uid, :string
   end
+  #lalalal
 end
