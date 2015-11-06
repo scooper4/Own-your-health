@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-ruby'2.1.2'
+ruby'2.2.1'
 gem 'aws-sdk', '~> 1.61.0'
+gem "paperclip-dropbox", ">= 1.1.7"
 gem 'will_paginate', '~> 3.0.6'
 gem 'omniauth-facebook'
 gem 'acts_as_votable', '~> 0.10.0'

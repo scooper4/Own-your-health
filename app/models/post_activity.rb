@@ -1,12 +1,10 @@
 class PostActivity < ActiveRecord::Base
 
   belongs_to :activity
-  has_attached_file :image, :styles => { :large => "1000x1000", :medium => "300x300>", :thumb => "100x100>" }, 
-  :default_url => "/images/:style/missing.png",
-  :storage => :s3,
-  :bucket  => ENV['S3_BUCKET_NAME'],
-   
-  :access_key_id => ENV['AWS_ACCESS_KEY_ID']
+  has_attached_file :image,
+    :storage => :dropbox,
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+     :path => ":id_:filename"  # Defaults to ":filename"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   belongs_to :user
   has_many :comments
