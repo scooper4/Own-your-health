@@ -56,10 +56,13 @@ body {padding-top:50px;}
 
 
 
+.show-image  {
+    margin: 0;
+    padding: 10px 10px;
+}
 .show-image img {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    padding: 10px 10px;
 }
 
 .show-comments {

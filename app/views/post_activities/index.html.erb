@@ -67,9 +67,9 @@
 					    	
 					    </h3>
 					  </div>
-					  <div class ="posts-styling">
+					  <div class ="show-image">
 					  	<% if t.image? %>
-						    <p> <%=  image_tag t.image.url(:medium), :class => "posts-styling" %> </p>
+						     <%=  image_tag t.image.url(:medium) %> 
 						<% else %>
 						<% end %> 
 							<p> <i> <%= " Posted " + time_ago_in_words(t.created_at) + " ago " %></p> </i> 
